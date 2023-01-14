@@ -1,0 +1,119 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+body {
+  background: #009688;
+}
+
+.ripple-wrap {
+  display: none;
+  overflow: hidden;
+  position: fixed;
+  font-size: 0;
+  z-index: 1000;
+  top: 0; left: 0; right: 0; bottom: 0;
+}
+@-webkit-keyframes RIPPLER {
+  0%   { border-width: 0; }
+  40% { 
+    height: 0;
+    width: 0;
+    border-width: 1500px;
+    margin-top: -1500px;
+    margin-left:-1500px; 
+    border-color: #009688;
+  }
+  
+  41% { 
+    height: 0;
+    width: 0;
+    border-width: 1500px;
+    margin-top: -1500px;
+    margin-left:-1500px; 
+    border-color: #009688;
+  }
+  100% {
+    border-width: 1500px;
+    height: 2000px;
+    width: 2000px;
+    margin-top: -2500px;
+    margin-left:-2500px;
+    border-color: #009688;
+  }
+}
+@keyframes RIPPLER {
+  0%   { border-width: 0; }
+  40% { 
+    height: 0;
+    width: 0;
+    border-width: 1500px;
+    margin-top: -1500px;
+    margin-left:-1500px; 
+    border-color: #009688;
+  }
+  41% { 
+    height: 0;
+    width: 0;
+    border-width: 1500px;
+    margin-top: -1500px;
+    margin-left:-1500px; 
+    border-color: #009688;
+  }
+  100% {
+    border-width: 1500px;
+    height: 2000px;
+    width: 2000px;
+    margin-top: -2500px;
+    margin-left:-2500px;
+    border-color: #009688;
+  }
+}
+.ripple {
+  display: block;
+  height: 0;
+  width: 0;
+  border-width: 0px;
+  border-style: solid;
+  border-color: #00796b;
+  border-radius: 100%;
+  position: absolute;
+  top: 300px;
+  left: 300px;
+  -webkit-animation: none;
+  animation: none;
+}
+.ripple-wrap.goripple {
+  display: block;
+}
+.ripple-wrap.goripple .ripple {
+ -webkit-animation-name: RIPPLER;
+ -webkit-animation-duration: 1.5s;
+ -webkit-animation-fill-mode: forwards;
+ animation-name: RIPPLER;
+ animation-duration: 1.5s;
+ animation-fill-mode: forwards;
+
+}
+
+
+
+/* This bit is just to look pretty. Not relevant to the implementation */
+
+body {
+  font-size: 1.2em;
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.4;
+  color: #D7EEEC;
+}
+a {
+  color: #004d40;
+  font-weight: bold;
+}
+
+.wrap {
+  margin: 48px auto;
+  max-width: 580px;
+  text-align: justify;
+}
+h1, h2 {
+  font-weight: lighter;
+}
+

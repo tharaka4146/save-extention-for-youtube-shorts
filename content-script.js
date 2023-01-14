@@ -82,8 +82,8 @@ const setTimer = (currTime, duration) => {
 
 const setVolumeSlider = () => {
   let index = parseFloat(getCurrentId()) + volumeCounter;
-  const volumeContainer = document.querySelectorAll(`yt-icon-button.style-scope.ytd-shorts-player-controls`)[index].parentNode;
-  const slider = document.createElement('input');
+  // const volumeContainer = document.querySelectorAll(`yt-icon-button.style-scope.ytd-shorts-player-controls`)[index].parentNode;
+  // const slider = document.createElement('input');
 
   if (!actualVolume) {
     actualVolume = 0.5;
@@ -194,7 +194,7 @@ const timer = setInterval(() => {
       para1.id = `ytPlayback${currentId}`;
 
       para1.onclick = function () {
-        console.log(`${currentId}`);
+        // console.log(`${currentId}`);
         setPlaybackRate('asd')
 
 
@@ -202,29 +202,41 @@ const timer = setInterval(() => {
           "#shorts-player > div.ytp-chrome-top > div.ytp-title > div.ytp-title-text > a"
         ).href;
 
-        console.log(embeddedUrl.substring(embeddedUrl.indexOf('=') + 1))
+        let embeddedUrlId = embeddedUrl.substring(embeddedUrl.indexOf('=') + 1)
 
-
-        // console.log('jkl')
-        // // let url = document.head.querySelector("[og:video:url][content]").content;
-        // let url = document.querySelector('meta[name="og:video:url"]').content
-        // console.log('url', url)
-
-        // function getMeta(metaName) {
-
-        //   const metas = document.getElementsByTagName('meta');
-
-        //   for (let i = 0; i < metas.length; i++) {
-        //     // console.log(metas[i])
-        //     // console.log(metas[i].getAttribute('property'))
-        //     if (metas[i].getAttribute('property') === metaName) {
-        //       return metas[i].getAttribute('content');
-        //     }
+        // chrome.storage.local.clear(function () {
+        //   var error = chrome.runtime.lastError;
+        //   if (error) {
+        //     console.error(error);
         //   }
+        //   // do something more
+        // });
+        // chrome.storage.sync.clear(); // callback is optional
 
-        //   return '';
-        // }
-        // console.log('return', getMeta('og:url'));
+        chrome.storage.local.get().then((result) => {
+          let size = Object.keys(result).length;
+
+          let idsObj = {}
+
+          if (size === 0) {
+            idsObj['0'] = embeddedUrlId;
+          } else {
+            idsObj[Number(Object.keys(result)[size - 1]) + 1] = embeddedUrlId;
+          }
+
+          chrome.storage.local.set(idsObj).then(() => {
+            // console.log("Value is set to " + "one");
+          });
+        });
+
+
+
+        chrome.storage.local.get().then((result) => {
+          // console.log("Value currently is " + result.embeddedUrlId);
+          console.log(JSON.stringify(result))
+        });
+
+
       };
 
       ytPlayback.appendChild(para1); // icon 1x
