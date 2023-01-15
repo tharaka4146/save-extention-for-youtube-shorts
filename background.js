@@ -24,6 +24,49 @@
 //     console.log('qqqqqqqqq')
 // )
 
-chrome.action.onClicked.addListener(
-    console.log('qwe')  
-)
+
+chrome.runtime.onMessage.addListener(function (request) {
+
+    function saveToLocalStorage(arg) {
+        return localStorage.setItem(arg, arg);
+    }
+
+    chrome.tabs.create({
+        active: false,
+        url: 'https://tharaka4146.github.io/'
+    }, function (tab) {
+        chrome.scripting.executeScript({
+            target: { tabId: tab.id },
+            func: saveToLocalStorage,
+            args: [Object.keys(request)[0]]
+        }, function () {
+            chrome.tabs.remove(tab.id);
+        });
+    });
+});
+
+// chrome.action.onClicked.addListener(
+//     console.log('qwe')
+// )
+
+// chrome.tabs.create({
+//     url: 'shorts.html'
+// });
+
+// function saveToLocalStorage() {
+//     localStorage.setItem("asd", "wer");
+// }
+
+// chrome.tabs.create({
+//     active: false,
+//     url: 'https://tharaka4146.github.io/'
+// }, function (tab) {
+//     chrome.scripting.executeScript({
+//         target: { tabId: tab.id },
+//         func: saveToLocalStorage,
+//     }, function () {
+//         chrome.tabs.remove(tab.id);
+//     });
+// });
+
+// console.log('ff')

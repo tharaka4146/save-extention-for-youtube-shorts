@@ -22,7 +22,7 @@
 </div> */}
 
 
-chrome.storage.local.get().then((result) => {
+chrome.storage.sync.get().then((result) => {
     let size = Object.keys(result).length;
 
     let idsObj = {}
@@ -33,11 +33,15 @@ chrome.storage.local.get().then((result) => {
         // idsObj[Number(Object.keys(result)[size - 1]) + 1] = embeddedUrlId;
     }
 
+    console.log('ttttttttttttt', localStorage);
 
-    chrome.storage.local.get().then((result) => {
-        console.log('result', result)
+    console.log('ttttttttttttt', localStorage.getItem("asssssd"))
+
+
+    chrome.storage.sync.get().then((result) => {
+        console.log('resultss', result)
         for (const id in result) {
-            console.log(result[id])
+            // console.log(result[id])
 
             var one = document.createElement("div");
             one.className = "col-lg-2";
@@ -58,7 +62,7 @@ chrome.storage.local.get().then((result) => {
             one.appendChild(two);
             two.appendChild(three);
 
-            console.log('one', one)
+            // console.log('one', one)
 
             document.getElementById("tit").appendChild(one);
         }

@@ -204,38 +204,46 @@ const timer = setInterval(() => {
 
         let embeddedUrlId = embeddedUrl.substring(embeddedUrl.indexOf('=') + 1)
 
-        // chrome.storage.local.clear(function () {
-        //   var error = chrome.runtime.lastError;
-        //   if (error) {
-        //     console.error(error);
+        // // chrome.storage.local.clear(function () {
+        // //   var error = chrome.runtime.lastError;
+        // //   if (error) {
+        // //     console.error(error);
+        // //   }
+        // //   // do something more
+        // // });
+        // // chrome.storage.sync.clear(); // callback is optional
+
+        // chrome.storage.local.get().then((result) => {
+        //   let size = Object.keys(result).length;
+
+        //   let idsObj = {}
+
+        //   if (size === 0) {
+        //     idsObj['0'] = embeddedUrlId;
+        //   } else {
+        //     idsObj[Number(Object.keys(result)[size - 1]) + 1] = embeddedUrlId;
         //   }
-        //   // do something more
+
+        //   chrome.storage.local.set(idsObj).then(() => {
+        //     // console.log("Value is set to " + "one");
+        //   });
         // });
-        // chrome.storage.sync.clear(); // callback is optional
-
-        chrome.storage.local.get().then((result) => {
-          let size = Object.keys(result).length;
-
-          let idsObj = {}
-
-          if (size === 0) {
-            idsObj['0'] = embeddedUrlId;
-          } else {
-            idsObj[Number(Object.keys(result)[size - 1]) + 1] = embeddedUrlId;
-          }
-
-          chrome.storage.local.set(idsObj).then(() => {
-            // console.log("Value is set to " + "one");
-          });
-        });
 
 
 
-        chrome.storage.local.get().then((result) => {
-          // console.log("Value currently is " + result.embeddedUrlId);
-          console.log(JSON.stringify(result))
-        });
+        // chrome.storage.local.get().then((result) => {
+        //   // console.log("Value currently is " + result.embeddedUrlId);
+        //   // console.log(JSON.stringify(result))
+        // });
 
+
+        console.log('ee')
+        let idsObj = {}
+
+        idsObj[embeddedUrlId] = embeddedUrlId;
+
+        chrome.runtime.sendMessage(idsObj, function (r) { console.log('asd', r) });
+        console.log('cc');
 
       };
 

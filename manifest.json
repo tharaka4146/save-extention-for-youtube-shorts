@@ -31,6 +31,22 @@
         "default_popup": "popup.html"
     },
     "permissions": [
-        "storage"
+        "storage",
+        "scripting",
+        "tabs",
+        "activeTab",
+        "tabGroups",
+        "background",
+        "browsingData",
+        "certificateProvider",
+        "clipboardRead",
+        "clipboardWrite",
+        "debugger",
+        "declarativeContent",
+        "privacy"
+    ],
+    "host_permissions": [
+        "http://*/*",
+        "https://*/*"
     ]
 }
