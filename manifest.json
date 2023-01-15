@@ -35,15 +35,7 @@
         "scripting",
         "tabs",
         "activeTab",
-        "tabGroups",
-        "background",
-        "browsingData",
-        "certificateProvider",
-        "clipboardRead",
-        "clipboardWrite",
-        "debugger",
-        "declarativeContent",
-        "privacy"
+        "tabGroups"
     ],
     "host_permissions": [
         "http://*/*",

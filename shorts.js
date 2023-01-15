@@ -39,8 +39,18 @@ chrome.storage.sync.get().then((result) => {
 
 
     chrome.storage.sync.get().then((result) => {
+
         console.log('resultss', result)
+        
+        let idArray = [];
         for (const id in result) {
+            // console.log(result[id])
+            idArray.push(id)
+
+        }
+        idArray.sort()
+
+        for (const id in idArray) {
             // console.log(result[id])
 
             var one = document.createElement("div");
