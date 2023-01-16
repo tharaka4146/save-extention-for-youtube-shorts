@@ -13,7 +13,13 @@ document.addEventListener("keydown", (data) => {
   const key = data.key.toLowerCase();
 
   switch (key) {
+    case "s":
+      console.log('asd')
+      document.getElementById(`ytPlayback${getCurrentId()}`).click();
+      break;
+
     case "j":
+      console.log('xcv')
       ytShorts.currentTime -= 5;
       break;
 
@@ -82,8 +88,8 @@ const setTimer = (currTime, duration) => {
 
 const setVolumeSlider = () => {
   let index = parseFloat(getCurrentId()) + volumeCounter;
-  const volumeContainer = document.querySelectorAll(`yt-icon-button.style-scope.ytd-shorts-player-controls`)[index].parentNode;
-  const slider = document.createElement('input');
+  // const volumeContainer = document.querySelectorAll(`yt-icon-button.style-scope.ytd-shorts-player-controls`)[index].parentNode;
+  // const slider = document.createElement('input');
 
   if (!actualVolume) {
     actualVolume = 0.5;
@@ -137,10 +143,170 @@ const checkVolume = () => {
 };
 
 // const setPlaybackRate = (currSpeed) => {
-const setPlaybackRate = (text) => {
-  document.getElementById(
-    `ytPlayback${getCurrentId()}`
-  ).innerHTML = text; // icon 1x change
+const setPlaybackRate = (text, currentId, isAvailable) => {
+
+  // <svg viewBox="0 0 32 32" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope yt-icon" style="pointer-events: none; display: block; width: 100%; height: 100%;">
+  //   <g class="style-scope yt-icon">
+  //     <path fill-rule="evenodd" clip-rule="evenodd" d="M25.8411 11.9977C26.6778 11.9977 27.4597 12.414 27.9268 13.1082C28.6951 14.2498 28.6876 15.745 27.908 16.8789L27.1796 17.9383L27.8546 19.5037C28.257 20.4368 28.1597 21.5102 27.596 22.3558L26.4999 24V25.9977C26.4999 27.1023 25.6044 27.9977 24.4999 27.9977L11.9999 27.9976C10.8953 27.9976 9.99987 27.1022 9.99987 25.9976V12.8264C9.99987 11.9927 10.2604 11.1799 10.7449 10.5015L15.8632 3.33586C16.0776 3.03569 16.4721 2.92531 16.8112 3.07062C18.5762 3.82706 19.5347 5.74955 19.0766 7.6144L17.9999 11.9976L25.8411 11.9977ZM5 13.4999C3.89543 13.4999 3 14.3954 3 15.4999V25.9999C3 27.1045 3.89543 27.9999 5 27.9999H8V13.4999H5Z" class="style-scope yt-icon">
+  //     </path>
+  //   </g>
+  // </svg>
+
+  // <svg class="style-scope yt-icon">
+  //   <g class="style-scope yt-icon">
+  //     <path class="style-scope yt-icon" d="M25.8411 11.9977C26.6778 11.9977 27.4597 12.414 27.9268 13.1082C28.6951 14.2498 28.6876 15.745 27.908 16.8789L27.1796 17.9383L27.8546 19.5037C28.257 20.4368 28.1597 21.5102 27.596 22.3558L26.4999 24V25.9977C26.4999 27.1023 25.6044 27.9977 24.4999 27.9977L11.9999 27.9976C10.8953 27.9976 9.99987 27.1022 9.99987 25.9976V12.8264C9.99987 11.9927 10.2604 11.1799 10.7449 10.5015L15.8632 3.33586C16.0776 3.03569 16.4721 2.92531 16.8112 3.07062C18.5762 3.82706 19.5347 5.74955 19.0766 7.6144L17.9999 11.9976L25.8411 11.9977ZM5 13.4999C3.89543 13.4999 3 14.3954 3 15.4999V25.9999C3 27.1045 3.89543 27.9999 5 27.9999H8V13.4999H5Z">
+  //     </path>
+  //   </g>
+  // </svg>
+
+
+
+  const iconSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  const iconG = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+  const iconPath = document.createElementNS(
+    'http://www.w3.org/2000/svg',
+    'path'
+  );
+
+
+  iconSvg.setAttribute('id', 'asd');
+  iconSvg.setAttribute('fill', '36px');
+  iconSvg.setAttribute('height', '36px');
+  iconSvg.setAttribute('viewBox', '-3 -6 36.00 36.00');
+  iconSvg.setAttribute('fill', 'none');
+
+  iconSvg.setAttribute('stroke', '#f1f1f1');
+  iconSvg.classList.add(`post-icon${currentId}`);
+
+  iconG.setAttribute('transform', 'translate(0,-289.0625)');
+
+  iconPath.setAttribute('d', 'M 8.9999994,292.06249 H 20.999999 c 1.108,0 1.999999,0.892 1.999999,2 l 2e-6,22.00001 -8,-6 -8,6 1e-7,-22 c 0,-1.108 0.892,-1.99989 1.9999999,-2 z');
+  // iconPath.setAttribute('stroke', '#ffffff');
+  iconPath.setAttribute('stroke-linecap', 'round');
+  iconPath.setAttribute('stroke-width', '0.792');
+  iconPath.setAttribute('stroke-linejoin', 'round');
+  iconPath.setAttribute('style', 'fill:#0f0f0f');
+  // iconPath.setAttribute('stroke-width', '2');
+
+  iconSvg.appendChild(iconG);
+  iconG.appendChild(iconPath);
+
+  const iconSvg2 = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  const iconG2 = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+  const iconPath2 = document.createElementNS(
+    'http://www.w3.org/2000/svg',
+    'path'
+  );
+
+
+  iconSvg2.setAttribute('fill', '36px');
+  iconSvg2.setAttribute('height', '36px');
+  iconSvg2.setAttribute('viewBox', '-3 -6 36.00 36.00');
+  iconSvg2.setAttribute('fill', 'none');
+
+  iconSvg2.setAttribute('stroke', '#f1f1f1');
+  iconSvg2.classList.add(`post-icon${currentId}`);
+
+  iconG2.setAttribute('transform', 'translate(0,-289.0625)');
+
+  iconPath2.setAttribute(
+    'd',
+    'M 8.9999994,292.06249 H 20.999999 c 1.108,0 1.999999,0.892 1.999999,2 l 2e-6,22.00001 -8,-6 -8,6 1e-7,-22 c 0,-1.108 0.892,-1.99989 1.9999999,-2 z'
+  );
+  // iconPath.setAttribute('stroke', '#ffffff');
+  iconPath2.setAttribute('stroke-linecap', 'round');
+  iconPath2.setAttribute('stroke-width', '0.792');
+  iconPath2.setAttribute('stroke-linejoin', 'round');
+  iconPath2.setAttribute('style', 'fill:#f1f1f1');
+  // iconPath.setAttribute('stroke-width', '2');
+
+  iconSvg2.appendChild(iconG2);
+  iconG2.appendChild(iconPath2);
+
+  // document.getElementById(
+  //   `svgId${currentId}`
+  // ).innerHTML = "";
+
+  if (isAvailable === "1") {
+    document.getElementById(
+      `timerContainer${currentId}`
+    ).style.backgroundColor = "#f1f1f1"; // icon 1x change
+
+    // document.getElementById(
+    //   `ytPlayback${getCurrentId()}`
+    // ).removeChild(document.getElementById(
+    //   `ytPlayback${getCurrentId()}`
+    // )).firstElementChild;
+
+    // console.log('sssssss', document.getElementsByClassName(
+    //   `post-icon${currentId}`
+    // ))
+
+    // console.log(
+    //   document.querySelector(
+    //     "#shorts-player > div.html5-video-container > video"
+    //   )
+    // )
+
+    // document.getElementsByClassName(
+    //   `post-icon${currentId}`
+    // ).innerHTML = "";
+
+    let temp = document.getElementById(
+      `ytPlayback${getCurrentId()}`
+    )
+
+    // console.log('temp', temp.children[0])
+
+    if (temp.children[0]) {
+      // console.log('yyyyyy', temp.childrem)
+      temp.removeChild(temp.children[0]);
+    }
+
+    document.getElementById(
+      `ytPlayback${getCurrentId()}`
+    ).append(iconSvg);
+
+
+  } else {
+    document.getElementById(
+      `timerContainer${currentId}`
+    ).style.backgroundColor = "#272727"; // icon 1x c
+
+    // document.getElementById(
+    //   `ytPlayback${getCurrentId()}`
+    // ).removeChild(document.getElementById(
+    //   `ytPlayback${getCurrentId()}`
+    // )).firstElementChild;
+
+    // document.getElementsByClassName(
+    //   `post-icon${currentId}`
+    // ).innerHTML = "";
+
+    // document.getElementById(
+    //   `ytPlayback${getCurrentId()}`
+    // ).removeChild(document.getElementById(
+    //   `ytPlayback${getCurrentId()}`
+    // ).firstElementChild);
+
+
+    let temp = document.getElementById(
+      `ytPlayback${getCurrentId()}`
+    )
+
+    // console.log('temp', temp.children[0])
+
+    if (temp.children[0]) {
+      // console.log('yyyyyy', temp.childrem)
+      temp.removeChild(temp.children[0]);
+    }
+
+    document.getElementById(
+      `ytPlayback${getCurrentId()}`
+    ).append(iconSvg2);
+
+
+  }
   // ).innerHTML = `${currSpeed}x`; // icon 1x change
 };
 
@@ -167,7 +333,7 @@ const timer = setInterval(() => {
       lastTime = currTime;
     }
     if (currSpeed != lastSpeed) {
-      setPlaybackRate('cvb');
+      // setPlaybackRate('cvb');
       lastSpeed = currSpeed;
     }
   } else {
@@ -178,6 +344,7 @@ const timer = setInterval(() => {
       //Container div
       const timerContainer = document.createElement("div");
       timerContainer.classList.add("betterYT-container");
+      timerContainer.id = `timerContainer${currentId}`;
 
       // Timer
       const ytTimer = document.createElement("div");
@@ -194,37 +361,68 @@ const timer = setInterval(() => {
       para1.id = `ytPlayback${currentId}`;
 
       para1.onclick = function () {
-        console.log(`${currentId}`);
-        setPlaybackRate('asd')
+        // console.log(`${currentId}`);
+        // setPlaybackRate('asd')
 
 
         const embeddedUrl = document.querySelector(
           "#shorts-player > div.ytp-chrome-top > div.ytp-title > div.ytp-title-text > a"
         ).href;
 
-        console.log(embeddedUrl.substring(embeddedUrl.indexOf('=') + 1))
+        let embeddedUrlId = embeddedUrl.substring(embeddedUrl.indexOf('=') + 1)
 
+        // // chrome.storage.local.clear(function () {
+        // //   var error = chrome.runtime.lastError;
+        // //   if (error) {
+        // //     console.error(error);
+        // //   }
+        // //   // do something more
+        // // });
+        // // chrome.storage.sync.clear(); // callback is optional
 
-        // console.log('jkl')
-        // // let url = document.head.querySelector("[og:video:url][content]").content;
-        // let url = document.querySelector('meta[name="og:video:url"]').content
-        // console.log('url', url)
+        // chrome.storage.local.get().then((result) => {
+        //   let size = Object.keys(result).length;
 
-        // function getMeta(metaName) {
+        //   let idsObj = {}
 
-        //   const metas = document.getElementsByTagName('meta');
-
-        //   for (let i = 0; i < metas.length; i++) {
-        //     // console.log(metas[i])
-        //     // console.log(metas[i].getAttribute('property'))
-        //     if (metas[i].getAttribute('property') === metaName) {
-        //       return metas[i].getAttribute('content');
-        //     }
+        //   if (size === 0) {
+        //     idsObj['0'] = embeddedUrlId;
+        //   } else {
+        //     idsObj[Number(Object.keys(result)[size - 1]) + 1] = embeddedUrlId;
         //   }
 
-        //   return '';
-        // }
-        // console.log('return', getMeta('og:url'));
+        //   chrome.storage.local.set(idsObj).then(() => {
+        //     // console.log("Value is set to " + "one");
+        //   });
+        // });
+
+        // chrome.storage.local.get().then((result) => {
+        //   // console.log("Value currently is " + result.embeddedUrlId);
+        //   // console.log(JSON.stringify(result))
+        // });
+
+
+        console.log('ee')
+
+        let idsObj = {}
+        let urlExists = localStorage.getItem(embeddedUrlId)
+
+        console.log('urlExists', urlExists)
+
+        if (!urlExists) {
+          setPlaybackRate('added', currentId, "1");
+          localStorage.setItem(embeddedUrlId, embeddedUrlId)
+          idsObj[embeddedUrlId] = "add";
+        } else {
+          setPlaybackRate('add', currentId, "0");
+          localStorage.removeItem(embeddedUrlId)
+          idsObj[embeddedUrlId] = "remove";
+        }
+
+        // idsObj[embeddedUrlId] = "search";
+
+        chrome.runtime.sendMessage(idsObj, function (res) { console.log('asd--', res) });
+
       };
 
       ytPlayback.appendChild(para1); // icon 1x
@@ -234,12 +432,29 @@ const timer = setInterval(() => {
       actionList.insertBefore(ytTimer, actionList.children[2]);
       injectedItem.add(currentId);
 
+      const embeddedUrl = document.querySelector(
+        "#shorts-player > div.ytp-chrome-top > div.ytp-title > div.ytp-title-text > a"
+      ).href;
+
+      let embeddedUrlId = embeddedUrl.substring(embeddedUrl.indexOf('=') + 1)
+
+      let urlExists = localStorage.getItem(embeddedUrlId)
+
+      if (urlExists) {
+        setPlaybackRate('added', currentId, "1");
+      } else {
+        setPlaybackRate('add', currentId, "0");
+      }
+
       ytShorts.playbackRate = setSpeed;
-      setPlaybackRate(setSpeed);
+      // setPlaybackRate(setSpeed);
+
 
       setTimer(currTime || 0, Math.round(ytShorts.duration || 0));
 
       timerContainer.addEventListener("click", (data) => {
+
+
         ytShorts.playbackRate = 1;
         setSpeed = ytShorts.playbackRate;
       });

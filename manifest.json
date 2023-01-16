@@ -5,9 +5,16 @@
     "manifest_version": 3,
     "content_scripts": [
         {
-            "matches": ["https://*.youtube.com/*"],
-            "js": ["content-script.js"],
-            "css": ["styles.css"]
+            "matches": [
+                "https://*.youtube.com/*"
+            ],
+            "js": [
+                "content-script.js",
+                "index.js"
+            ],
+            "css": [
+                "styles.css"
+            ]
         }
     ],
     "icons": {
@@ -15,5 +22,23 @@
         "32": "icons/byts32.png",
         "48": "icons/byts48.png",
         "128": "icons/byts128.png"
-    }
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+    "action": {
+        "default_title": "My YT Bookmarks",
+        "default_popup": "popup.html"
+    },
+    "permissions": [
+        "storage",
+        "scripting",
+        "tabs",
+        "activeTab",
+        "tabGroups"
+    ],
+    "host_permissions": [
+        "http://*/*",
+        "https://*/*"
+    ]
 }
