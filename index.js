@@ -1,6 +1,6 @@
 document.getElementById('button-1').addEventListener('click', function () {
     console.log('111!');
-    location.href = 'shorts.html'
+    location.href = 'https://tharaka4146.github.io/'
     // document.getElementById('button-1').style.backgroundColor = "#8383834a"
 });
 

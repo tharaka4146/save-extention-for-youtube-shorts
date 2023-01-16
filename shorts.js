@@ -18,64 +18,91 @@
         <iframe width="225" height="400" src="https://www.youtube.com/embed/XUTzp0RHEJs"
             style="border-radius: 10px;" frameborder="0" allowfullscreen>
         </iframe>
-    </div>
+        </div>
 </div> */}
 
+console.log(1)
 
-chrome.storage.sync.get().then((result) => {
-    let size = Object.keys(result).length;
-
-    let idsObj = {}
-
-    if (size === 0) {
-        // idsObj['0'] = embeddedUrlId;
-    } else {
-        // idsObj[Number(Object.keys(result)[size - 1]) + 1] = embeddedUrlId;
-    }
+// keys = Object.keys(localStorage),
 
 
-    chrome.storage.sync.get().then((result) => {
-
-        console.log('resultss', result)
-
-        let idArray = [];
-
-        for (const id in result) {
-            // console.log(result[id])
-            idArray.push(id)
-
-        }
-        idArray.sort()
-
-        for (const id in idArray) {
-            // console.log(result[id])
-
-            var one = document.createElement("div");
-            one.className = "col-lg-2";
-            one.style.margin = "15px";
-
-            var two = document.createElement("div");
-            two.className = "card";
-
-            var three = document.createElement("iframe");
-            three.width = "225";
-            three.height = "400";
-            three.src = `https://www.youtube.com/embed/${result[id]}`;
-            three.style.borderRadius = "10px";
-            three.frame
-            three.allowFullscreen = "allowfullscreen";
+console.log('qqq');
 
 
-            one.appendChild(two);
-            two.appendChild(three);
+// for (var i = 0, len = localStorage.length; i < len; ++i) {
 
-            // console.log('one', one)
+let idIntArray = []
 
-            document.getElementById("tit").appendChild(one);
-        }
-    });
+let idArray = Object.keys(localStorage)
 
-});
+for (let values of idArray) {
+    idIntArray.push(Number(idArray[values]))
+}
+
+let sortIdIntArray = Object.values(idIntArray).sort((a, b) => b - a)
+
+// console.log('sortIdIntArray', sortIdIntArray)
+// for (let i = localStorage.length - 1; i > -1; i--) {
+// for (let i = 0; i < localStorage.length; i++) {
+
+//     var one = document.createElement("div");
+//     one.className = "col-lg-2";
+//     one.style.margin = "15px";
+
+//     var two = document.createElement("div");
+//     two.className = "card";
+
+//     var three = document.createElement("iframe");
+//     three.width = "225";
+//     three.height = "400";
+//     three.src = `https://www.youtube.com/embed/${localStorage[sortIdIntArray[i]]}`;
+//     three.style.borderRadius = "10px";
+//     three.frame
+//     three.allowFullscreen = "allowfullscreen";
+
+
+//     one.appendChild(two);
+//     two.appendChild(three);
+
+//     document.getElementById("tit").appendChild(one);
+// }
+
+// for (let i = 0; i < localStorage.length; i++) {
+// console.log('localStorage', localStorage)
+
+for (let values in localStorage) {
+    // console.log('values', values)
+
+
+    var one = document.createElement("div");
+    one.className = "col-lg-2";
+    one.style.margin = "15px";
+
+    var two = document.createElement("div");
+    two.className = "card";
+
+    var three = document.createElement("iframe");
+    three.width = "225";
+    three.height = "400";
+    three.src = `https://www.youtube.com/embed/gdY-vg7jM0g`;
+    three.style.borderRadius = "10px";
+    three.frame
+    three.allowFullscreen = "allowfullscreen";
+
+
+    
+
+    one.appendChild(two);
+    two.appendChild(three);
+
+    document.getElementById("tit").appendChild(one);
+    // })
+
+}
+
+
+
+
 
 // for (var i in tit) {
 
