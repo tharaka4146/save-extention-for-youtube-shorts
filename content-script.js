@@ -229,8 +229,6 @@ const timer = setInterval(() => {
         //   });
         // });
 
-
-
         // chrome.storage.local.get().then((result) => {
         //   // console.log("Value currently is " + result.embeddedUrlId);
         //   // console.log(JSON.stringify(result))
@@ -238,12 +236,12 @@ const timer = setInterval(() => {
 
 
         console.log('ee')
-        let idsObj = {}
 
-        idsObj[embeddedUrlId] = embeddedUrlId;
+        let idsObj = {}
+        idsObj[embeddedUrlId] = "del";
 
         chrome.runtime.sendMessage(idsObj, function (r) { console.log('asd', r) });
-        console.log('cc');
+
 
       };
 

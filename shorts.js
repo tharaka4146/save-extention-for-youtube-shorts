@@ -33,16 +33,13 @@ chrome.storage.sync.get().then((result) => {
         // idsObj[Number(Object.keys(result)[size - 1]) + 1] = embeddedUrlId;
     }
 
-    console.log('ttttttttttttt', localStorage);
-
-    console.log('ttttttttttttt', localStorage.getItem("asssssd"))
-
 
     chrome.storage.sync.get().then((result) => {
 
         console.log('resultss', result)
-        
+
         let idArray = [];
+
         for (const id in result) {
             // console.log(result[id])
             idArray.push(id)
