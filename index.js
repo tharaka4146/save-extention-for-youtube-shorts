@@ -12,5 +12,6 @@ document.getElementById('button-2').addEventListener('click', function () {
 
 document.getElementById('button-3').addEventListener('click', function () {
     console.log('333!');
+    location.href = 'other.html'
     // document.getElementById('button-3').style.backgroundColor = "#8383834a"
 });
