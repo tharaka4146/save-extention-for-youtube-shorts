@@ -16,7 +16,7 @@
         crossorigin="anonymous"></script>
 
     <script type="module" src="shorts.js"></script>
-    <script src="https://labnol.googlecode.com/files/youtube.js"></script>
+    <!-- <script src="https://labnol.googlecode.com/files/youtube.js"></script> -->
 
 
     <!-- <link rel="stylesheet" href="css/style.css"> -->
@@ -88,11 +88,27 @@
             height: 200px;
             width: 200px;
         }
+
+        img {
+            object-fit: cover;
+            width: 218px;
+            height: 400px;
+            border-radius: 10px;
+        }
+
+        .youtube-player {
+            /* background: #000; */
+        }
+
+        .youtube-player iframe {
+            position: absolute;
+            border-radius: 10px;
+        }
     </style>
 
-https://i.ytimg.com/vi/wXPIdBpeN4k/hq720_2.jpg?sqp=-oaymwEdCJUDENAFSFXyq4qpAw8IARUAAIhCcAHAAQbQAQE=&rs=AOn4CLBfvQpbfMwPx1jDA_LO-YV2W1PsDw
+    <!-- https://i.ytimg.com/vi/wXPIdBpeN4k/hq720_2.jpg?sqp=-oaymwEdCJUDENAFSFXyq4qpAw8IARUAAIhCcAHAAQbQAQE=&rs=AOn4CLBfvQpbfMwPx1jDA_LO-YV2W1PsDw
 https://i.ytimg.com/vi/zNRlNAcb2hY/hq720_2.jpg?sqp=-oaymwEdCJUDENAFSFXyq4qpAw8IARUAAIhCcAHAAQbQAQE=&rs=AOn4CLCTC7w2kOMe6n2qSD-a3I8nyXukNg
-https://i.ytimg.com/vi/bMohKtBppWQ/hq720_2.jpg?sqp=-oaymwEdCJUDENAFSFXyq4qpAw8IARUAAIhCcAHAAQbQAQE=&rs=AOn4CLAbWJYwB4ZbwaC-_0T9J5SyN3_b_w
+https://i.ytimg.com/vi/bMohKtBppWQ/hq720_2.jpg?sqp=-oaymwEdCJUDENAFSFXyq4qpAw8IARUAAIhCcAHAAQbQAQE=&rs=AOn4CLAbWJYwB4ZbwaC-_0T9J5SyN3_b_w -->
 
 
 </head>
@@ -146,7 +162,7 @@ https://i.ytimg.com/vi/bMohKtBppWQ/hq720_2.jpg?sqp=-oaymwEdCJUDENAFSFXyq4qpAw8IA
         <section class="py-5 text-center container">
             <div class="row py-lg-5">
                 <div class="col-lg-6 col-md-8 mx-auto">
-                    <h1 class="fw-light">Your Shorts</h1>
+                    <h1 class="fw-light">My Shorts</h1>
                     <!-- <p class="lead text-muted">Something short and leading about the collection below—its contents, the
                         creator,
                         etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p> -->
@@ -163,11 +179,10 @@ https://i.ytimg.com/vi/bMohKtBppWQ/hq720_2.jpg?sqp=-oaymwEdCJUDENAFSFXyq4qpAw8IA
 
             <div class="container">
 
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" id="tdit">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" id="tit">
 
-                    <div class="youtube" id="gdY-vg7jM0g" style="width: 320px; height: 180px;">asd</div>
 
-                    <div class="youtube-player" data-id="dRhS2vW6UCE">fff</div>
+                    <!-- <div class="youtube-player" data-id="dRhS2vW6UCE">fff</div> -->
 
 
                     <!-- <div class="col-lg-2" style="margin: 15px;">

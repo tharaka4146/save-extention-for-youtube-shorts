@@ -1,9 +1,12 @@
-// // chrome.browserAction.onClicked.addListener(function () {
-// chrome.browserAction.onClicked.addListener(
-//     () => {
-//         console.log('qwe')
-//     }
-// )
+
+// chrome.runtime.onMessage.addListener((msg, sender, response) => {
+//     console.log(msg)
+//     // if (msg.name === "message") {
+//     //     //Send response
+//     //     response({ text: "This isaresponse..." });
+//     // }
+// });
+// chrome.tabs.create({ url: './index.html', selected: true, active: true });
 
 // chrome.tabs.onUpdated.addListener((tabId, tab) => {
 
@@ -42,6 +45,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 
             // return Object.values(idIntArray).sort((a, b) => b - a)
 
+            console.log('Math.max(...idIntArray)', Math.max(...idIntArray))
             return Math.max(...idIntArray);
 
 
