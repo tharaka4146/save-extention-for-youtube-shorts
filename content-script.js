@@ -369,7 +369,7 @@ const timer = setInterval(() => {
           "#shorts-player > div.ytp-chrome-top > div.ytp-title > div.ytp-title-text > a"
         ).href;
 
-        let embeddedUrlId = embeddedUrl.substring(embeddedUrl.indexOf('=') + 1)
+        let embeddedUrlId = embeddedUrl.substring(embeddedUrl.indexOf('shorts/') + 7)
 
         // // chrome.storage.local.clear(function () {
         // //   var error = chrome.runtime.lastError;
@@ -402,12 +402,8 @@ const timer = setInterval(() => {
         // });
 
 
-        console.log('ee')
-
         let idsObj = {}
         let urlExists = localStorage.getItem(embeddedUrlId)
-
-        console.log('urlExists', urlExists)
 
         if (!urlExists) {
           setPlaybackRate('added', currentId, "1");
